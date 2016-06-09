@@ -1,0 +1,47 @@
+/* Basic background image styling. */
+.background-image {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+/* Styles for the alternating / transition effect. */
+.toggle-image {
+ 	position: absolute;
+ 	margin: 0px;
+	top: 0;
+	left: 0;
+	transition: opacity 1s ease-in-out;
+	padding: 0px; border: none; width: 1900px; height: 990px; max-height: none; max-width: none; z-index: -999999; left: 0px; top: -5.95637px;
+}
+
+/* Styles for the specific images. */
+.first-image {
+	background-image: url('../../assets/img/backgrounds/Histogenetics3.jpg');
+	z-index: -3;
+	opacity: 0;
+}
+
+.second-image {
+	background-image: url('../../assets/img/backgrounds/Histogenetics1.jpg');	
+	z-index: -2;
+	opacity: 0;
+}
+
+.third-image {
+	background-image: url('../../assets/img/backgrounds/Histogenetics2.jpg');
+	z-index: -1;
+	opacity: 0;
+}
+
+.first-image.show {
+	opacity: 1;
+}
+
+.second-image.show {
+	opacity: 1;
+}
+
+.third-image.show {
+	opacity: 1;
+}
