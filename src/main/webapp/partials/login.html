@@ -34,7 +34,10 @@
 			                        	<label class="sr-only" for="form-password">Password</label>
 			                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password" ng-model="user.credentials.password" required>
 			                        </div>
-			                        <button type="submit" class="btn btn-primary" >Log in</button>
+			                        <div class="form-actions">
+				                        <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-primary" >Log in</button>
+				                        <a href="#/signup" class="btn btn-link">Register</a>
+				                    </div>
 			                    </form>
 		                    </div>
                         </div>
