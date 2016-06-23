@@ -6,7 +6,7 @@ var services = angular.module('loginApp.services', ['ngResource']);
 
 services.factory('UserFactory', ['$resource', function ($resource) {
     //$resource() function returns an object of resource class.
-	var Url = 'http://localhost\\:8082/SpringRestfulHelloWorldExample/user/signup';
+	var Url = 'http://localhost\\:8082/midlayerLoginModule/user/signup';
 	
     return $resource(
             Url, 
