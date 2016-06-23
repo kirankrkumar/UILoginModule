@@ -16,27 +16,34 @@ app.run(function ($rootScope, $templateCache) {
 });
 
 
-app.controller('userDashBoradCtrl', ['$scope', '$window', 'UserFactory', 'UserAuth', function ($scope, $window, UserFactory, UserAuth) {
+app.controller('userDashBoradCtrl', ['$scope', '$window', 'UserFactory',  function ($scope, $window, UserFactory ) {
     $scope.bla = 'bla from User Dash Board controller';
 }]);
 
+app.controller('loginCtrl', ['$scope', '$window', 'UserFactory',  function ($scope, $window, UserFactory ) {
+    $scope.bla = 'bla from Login  controller';
+}]);
 
-app.controller('loginCtrl', ['$scope', '$window', 'UserRoles', 'UserAuth', function ($scope, $window, UserRoles, UserAuth) {
-	$scope.bla = 'bla from Login controller';
+app.controller('signupCtrl', ['$scope', '$window', 'UserFactory', '$location', function ($scope, $window, UserFactory,$location) {
+	$scope.bla = 'bla from signup controller';
 	
-	$scope.roles = {};
-    
-	var credentials = {
-	          username: this.username,
-	          password: this.password
-	      };
-	
-	$scope.user = {
-			credentials: "",
-			role: ""
+	$scope.register = function(user){
+		$scope.dataLoading = true;
+		
+		UserFactory.save({},user,function(resp, headers){
+		      //success callback
+		      console.log(resp);
+		    },
+		    function(err){
+		      // error callback
+		      console.log(err);
+		    });
+		
+		$scope.dataLoading = false;
 	};
 	
-	$scope.loginAuth = function(user){
-			UserAuth.save(user,function(response){});
-	}
+	
+	$scope.go = function(path){
+		$location.path(path);
+	};
 }]);
